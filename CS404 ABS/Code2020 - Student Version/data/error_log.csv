@@ -1,0 +1,62 @@
+2020-02-26 16:54:35.233539;value;0;1604990-1;bidding;name 'current_painting_value' is not defined
+2020-02-26 16:59:19.724277;value;0;1604990-1;bidding;'dict' object is not callable
+2020-02-27 12:54:36.240373;value;0;1604990-1;bidding;'list' object has no attribute 'length'
+2020-02-27 12:55:02.052523;value;0;1604990-1;bidding;'list' object has no attribute 'size'
+2020-02-27 12:55:19.124831;value;0;1604990-1;bidding;'list' object has no attribute 'length'
+2020-02-27 13:46:30.087767;value;0;1604990-1;bidding;'unique_id'
+2020-02-27 14:49:58.474304;value;0;1604990-1;bidding;local variable 'utils' referenced before assignment
+2020-02-27 14:50:24.062688;value;0;1604990-1;bidding;name 'math' is not defined
+2020-02-27 14:51:05.229802;value;0;1604990-1;bidding;name 'math' is not defined
+2020-02-27 15:14:48.098497;value;0;1604990-1;bidding;local variable 'totval' referenced before assignment
+2020-02-27 15:21:26.406075;value;0;1604990-1;bidding;module 'math' has no attribute 'max'
+2020-03-03 14:23:37.838106;value;0;1604990-1;bidding;unsupported operand type(s) for /: 'NoneType' and 'int'
+2020-03-03 14:24:12.268165;value;0;1604990-1;bidding;'float' object is not iterable
+2020-03-03 14:24:57.593898;value;0;1604990-1;bidding;list index out of range
+2020-03-03 14:26:07.432364;value;0;1604990-1;bidding;list index out of range
+2020-03-03 14:26:40.566083;value;0;1604990-1;bidding;list index out of range
+2020-03-03 14:28:34.418883;value;0;1604990-1;bidding;name 'opp_bid' is not defined
+2020-03-03 14:28:45.359764;value;0;1604990-1;bidding;'float' object is not iterable
+2020-03-03 14:30:34.545831;value;0;1604990-1;bidding;can't multiply sequence by non-int of type 'float'
+2020-03-03 14:31:08.862867;value;0;1604990-1;bidding;can't multiply sequence by non-int of type 'float'
+2020-03-03 14:47:52.162416;value;0;1604990-1;bidding;division by zero
+2020-03-03 15:11:00.440409;value;0;1604990-1;bidding;name 'Print' is not defined
+2020-03-03 15:43:51.396889;value;179;1604990-1;bidding;float division by zero
+2020-03-12 20:13:06.202783;value;0;1604990-1;bidding;list indices must be integers or slices, not str
+2020-03-12 20:13:34.879767;value;0;1604990-1;bidding;list indices must be integers or slices, not str
+2020-03-12 20:14:54.040342;value;0;1604990-1;bidding;list indices must be integers or slices, not str
+2020-03-12 20:15:06.218980;value;0;1604990-1;bidding;list indices must be integers or slices, not str
+2020-03-12 20:15:14.249638;value;0;1604990-1;bidding;local variable 'rem_val' referenced before assignment
+2020-03-12 20:15:31.562519;value;0;1604990-1;bidding;unsupported operand type(s) for +=: 'int' and 'dict'
+2020-03-12 20:15:47.613285;value;0;1604990-1;bidding;name 'op_cpu' is not defined
+2020-03-12 20:16:01.628815;value;0;1604990-1;bidding;name 'opp_cpu' is not defined
+2020-03-12 20:16:16.836446;value;0;1604990-1;bidding;unsupported operand type(s) for /: 'int' and 'list'
+2020-03-12 20:16:39.778062;value;0;1604990-1;bidding;name 'opp_agg' is not defined
+2020-03-12 20:17:06.200142;value;157;1604990-1;bidding;division by zero
+2020-03-12 20:42:58.861131;value;0;1604990-1;bidding;list indices must be integers or slices, not str
+2020-03-12 20:44:19.462179;value;0;1604990-1;bidding;'builtin_function_or_method' object is not subscriptable
+2020-03-12 20:44:42.982175;value;0;1604990-1;bidding;'builtin_function_or_method' object is not subscriptable
+2020-03-12 21:01:43.051972;value;0;1604990-1;bidding;name 'sort' is not defined
+2020-03-12 21:02:01.764114;value;0;1604990-1;bidding;'NoneType' object is not subscriptable
+2020-03-12 21:02:33.202177;value;0;1604990-1;bidding;'NoneType' object is not subscriptable
+2020-03-12 21:02:50.375990;value;0;1604990-1;bidding;'NoneType' object is not subscriptable
+2020-03-12 21:03:08.167474;value;0;1604990-1;bidding;'NoneType' object is not subscriptable
+2020-03-12 21:13:01.597618;value;192;1604990-1;bidding;division by zero
+2020-04-16 11:32:29.862285;collection;0;1604990-4;bidding;0
+2020-04-16 11:34:22.520256;collection;0;1604990-4;bidding;unhashable type: 'slice'
+2020-04-16 11:35:35.874381;collection;0;1604990-4;bidding;unhashable type: 'slice'
+2020-04-16 11:44:59.798854;collection;0;1604990-4;bidding;'NoneType' object has no attribute 'sort'
+2020-04-16 11:46:17.586547;collection;0;1604990-4;bidding;'NoneType' object has no attribute 'sort'
+2020-04-16 11:46:49.118159;collection;0;1604990-4;bidding;'NoneType' object has no attribute 'sort'
+2020-04-16 11:49:35.660010;collection;0;1604990-4;bidding;'NoneType' object has no attribute 'sort'
+2020-04-16 11:50:10.765019;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:51:34.715115;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:52:12.471017;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:52:59.681687;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:54:23.507223;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:54:52.842663;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:56:01.303966;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:57:02.574623;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:58:39.749431;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:58:55.626685;collection;0;1604990-4;bidding;list index out of range
+2020-04-16 11:59:33.908448;collection;0;1604990-4;bidding;local variable 'j' referenced before assignment
+2020-04-16 12:33:48.647052;collection;0;1604990-1;bidding;name 'paintings' is not defined

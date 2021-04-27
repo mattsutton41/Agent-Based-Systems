@@ -1,0 +1,175 @@
+import numpy as np
+import random
+import math
+
+class Bot(object):
+
+	def __init__(self):
+		self.name = "1604990"# Put your id number her. String or integer will both work
+        #akash = '1602498'
+        #if(akash in bots_in_room):
+         #   alpha = 1
+            
+		# Add your own variables here, if you want to. 
+
+	def get_bid_game_type_collection(self, current_round, bots, game_type, winner_pays, artists_and_values, round_limit,
+		starting_budget, painting_order, target_collection, my_bot_details, current_painting, winner_ids):
+		"""Strategy for collection type games. 
+
+		Parameters:
+		current_round(int): 			The current round of the auction game
+		bots(dict): 					A dictionary holding the details of all of the bots in the auction
+										Includes what paintings the other bots have won and their remaining budgets
+		game_type(str): 				Will be "collection" for collection type games
+		winner_pays(int):				Rank of bid that winner plays. 1 is 1st price auction. 2 is 2nd price auction.
+		artists_and_values(dict):		A dictionary of the artist names and the painting value to the score (for value games)
+		round_limit(int):				Total number of rounds in the game - will always be 200
+		starting_budget(int):			How much budget each bot started with - will always be 1001
+		painting_order(list str):		A list of the full painting order
+		target_collection(list int):	A list of the type of collection required to win, for collection games - will always be [4,2]
+										[5] means that you need 5 of any one type of painting
+										[4,2] means you need 4 of one type of painting and 2 of another
+										[3,3,1] means you need 3 of one tpye of painting, 3 of another, and 1 of another
+		my_bot_details(dict):			Your bot details. Same as in the bots dict, but just your bot. 
+										Includes your current paintings, current score and current budget
+		current_painting(str):			The artist of the current painting that is being bid on
+		winner_ids(list str):			A list of the ids of the winners of each round so far 
+
+		Returns:
+		int:Your bid. Return your bid for this round. 
+		"""
+
+		# WRITE YOUR STRATEGY HERE FOR COLLECTION TYPE GAMES - FIRST TO COMPLETE A FULL COLLECTION
+
+		my_budget = my_bot_details["budget"]
+		return 20
+
+	def get_bid_game_type_value(self, current_round, bots, game_type, winner_pays, artists_and_values, round_limit,
+		starting_budget, painting_order, target_collection, my_bot_details, current_painting, winner_ids):
+		"""Strategy for value type games. 
+
+		Parameters:
+		current_round(int): 			The current round of the auction game
+		bots(dict): 					A dictionary holding the details of all of the bots in the auction
+										Includes what paintings the other bots have won and their remaining budgets
+		game_type(str): 				Will be either "collection" or "value", the two types of games we will play
+		winner_pays(int):				rank of bid that winner plays. 1 is 1st price auction. 2 is 2nd price auction.
+		artists_and_values(dict):		A dictionary of the artist names and the painting value to the score (for value games)
+		round_limit(int):				Total number of rounds in the game
+		starting_budget(int):			How much budget each bot started with
+		painting_order(list str):		A list of the full painting order
+		target_collection(list int):	A list of the type of collection required to win, for collection games
+										[5] means that you need 5 of any one type of painting
+										[4,2] means you need 4 of one type of painting and 2 of another
+										[3,3,1] means you need 3 of one type of painting, 3 of another, and 1 of another
+		my_bot_details(dict):			Your bot details. Same as in the bots dict, but just your bot. 
+										Includes your current paintings, current score and current budget
+		current_painting(str):			The artist of the current painting that is being bid on
+		winner_ids(list str):			A list of the ids of the winners of each round so far 
+
+		Returns:
+		int:Your bid. Return your bid for this round. 
+		"""
+		# WRITE YOUR STRATEGY HERE FOR VALUE GAMES - MOST VALUABLE PAINTINGS WON WINS
+		# Collect info
+		# myBudget, myScore, n, cpv
+		myBudget = my_bot_details["budget"]
+		myScore = my_bot_details["score"]
+		n = len(bots)
+		cpv = artists_and_values[current_painting]
+		budgets = []
+		scores  = []
+		utils = []
+		remval = 0
+		myutil = 0
+		for artist in painting_order[current_round:]:
+			remval += artists_and_values[artist]
+		for bot in bots:
+			if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:
+				budgets.append(bot["budget"]) 
+				scores.append(bot["score"])	
+				#utils.append(bot["budget"]/remval)
+		# Here is an example of how to get the current painting's value
+		totval = 0
+
+
+
+		if(n == 2):
+			for artist in painting_order:
+				totval += artists_and_values[artist]
+			objval = (totval+1)/2
+			avgval = myBudget/(objval-myScore)
+			myutil = avgval*cpv
+			if(myutil > myBudget):
+				myutil = myBudget
+		else:
+			#Budget, ToWin, Scores, utils
+			min_win_me = 0
+			min_win_opp = []
+			current_max = max(scores)
+			current_max_op = max(current_max, myScore)
+			pot_win = 0
+			#Captures value needed to win
+			min_win_me = (remval + current_max_op - myScore)/2
+
+			for bot in bots:
+				if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:
+					pot_win = (remval+current_max_op-bot["score"])/2
+					if pot_win <= remval:
+						min_win_opp.append((remval+current_max_op-bot["score"])/2)
+					else:
+						min_win_opp.append(1000)
+			print(min_win_opp)
+			#Captures Utils
+			my_cpu = myBudget/min_win_me
+			opp_cpu = []
+			i = 0
+			for bot in bots:
+				if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:
+					opp_cpu.append(bot["budget"]/min_win_opp[i])
+					i+=1
+			my_bid = my_cpu*cpv
+			opp_bids = []
+			for i in range(len(opp_cpu)):
+				opp_bids.append(opp_cpu[i]*cpv)
+			#Aggression: High: Budget++, ToWin--, Utils++
+			#Basic: Total/Opp
+			tot_win = sum(min_win_opp) + min_win_me
+			my_agg = tot_win / min_win_me
+			opp_agg = []
+			i = 0
+			for bot in bots:
+				if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:		
+					opp_agg.append(tot_win/min_win_opp[i])
+					i += 1
+			#Normalise aggression
+			tot_agg = sum(opp_agg) + my_agg
+			norm_opp_agg = []
+			norm_my_agg = my_agg / tot_agg
+			i = 0
+			for bot in bots:
+				if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:		
+					norm_opp_agg.append(opp_agg[i]/tot_agg)
+					i+=1
+
+			#Sum individual bids
+			my_bid_agg = norm_my_agg * my_bid
+			opp_bids_agg = []
+			i = 0
+			for bot in bots:
+				if bot["bot_unique_id"]!=my_bot_details["bot_unique_id"]:
+					opp_bids_agg.append(norm_opp_agg[i]*opp_bids[i])
+					i += 1
+			myutil = sum(opp_bids) + my_bid_agg
+		#Calculate remaining value
+
+		# Here is an example of printing who won the last round
+		# if current_round>1:
+		# 	who_won_last_round = winner_ids[current_round-1]
+		# 	print("The last round was won by ", who_won_last_round)
+		
+		# Play around with printing out other variables in the function, 
+		# to see what kind of inputs you have to work with
+		
+		print("My bid ", math.ceil(myutil))
+		return math.ceil(myutil)

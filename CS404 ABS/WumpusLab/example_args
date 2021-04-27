@@ -1,0 +1,70 @@
+%Example arguments
+%You can add comments, but each comments should occupy
+%a whole line, i.e. comments and argument contents
+%should not co-exist in one line
+
+%NOTE: all contents are case insensitive.
+
+%argument 1:
+%when see glitter, pick it up
+if
+glitter	true
+then
++	pick_up
+-	left
+-	right
+-	up
+-	down
+-	shoot_left
+-	shoot_right
+-	shoot_up
+-	shoot_down
+done
+
+%argument 2:
+%find a wumpus in some direction, then shoot that direction
+%and dis-encourage going to that direction
+
+%wumpus must be in right
+if
+left	ok
+up	ok
+down	ok
+stench	true
+then
++	shoot_right
+-	right
+done
+
+%wumpus must be in left
+if
+right	ok
+up	ok
+down	ok
+stench	true
+then
++	shoot_left
+-	left
+done
+
+%must be in up
+if
+left	ok
+right	ok
+down	ok
+stench	true
+then
++	shoot_up
+-	up
+done
+
+%must be in down
+if
+left	ok
+right	ok
+up	ok
+stench	true
+then
++	shoot_down
+-	down
+done
